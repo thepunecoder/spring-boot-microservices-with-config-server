@@ -1,0 +1,24 @@
+Step : 1
+PS C:\Workspace\SpringBootMicroservices> git init 
+Initialized empty Git repository in C:/Workspace/SpringBootMicroservices/.git/
+
+Step 2
+PS C:\Workspace\SpringBootMicroservices> git add .
+
+Step 3
+PS C:\Workspace\SpringBootMicroservices> git commit -m "Initial commit to combine account loan and cards microservices"
+[master (root-commit) 6929f3e] Initial commit to combine account loan and cards microservices
+
+Step 4
+Create empty repo on github
+
+Step 5
+PS C:\Workspace\SpringBootMicroservices> git remote add origin https://github.com/thepunecoder/spring-boot-microservices.git 
+PS C:\Workspace\SpringBootMicroservices> git branch -M main 
+PS C:\Workspace\SpringBootMicroservices> git push -u origin main 
+Enumerating objects: 195, done.
+
+
+Print Env Variable in Intellij Terminal 
+
+PS C:\Workspace\SpringBootMicroservices> Get-ChildItem Env:

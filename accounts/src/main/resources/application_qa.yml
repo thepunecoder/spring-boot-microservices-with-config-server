@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: qa
+
+build:
+  version: 2.0.0
+
+accounts:
+  message: "Welcome to ThePuneCoder accounts related QA APIs"
+  contactDetails:
+    name: "Devarsh W - QA Lead"
+    email: "qalead@thepunecoder.com"
+  onCallSupport:
+    - (666) 555-1234
+    - (666) 523-1345
