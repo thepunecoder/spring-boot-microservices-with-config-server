@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WorkspaceSettings">
+    <project name="cards" path="$PROJECT_DIR$/cards" />
+    <project name="loans" path="$PROJECT_DIR$/loans" />
+    <project name="accounts" path="$PROJECT_DIR$/accounts" />
+    <project name="configserver" path="$PROJECT_DIR$/configserver" />
+    <option name="workspace" value="true" />
+  </component>
+</project>
