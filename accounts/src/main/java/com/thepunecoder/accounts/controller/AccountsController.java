@@ -71,6 +71,7 @@ public class AccountsController {
             )
     }
     )
+
     @PostMapping("/create")
     public ResponseEntity<ResponseDto> createAccount(@Valid @RequestBody CustomerDto customerDto) {
         iAccountsService.createAccount(customerDto);
@@ -84,6 +85,7 @@ public class AccountsController {
             description = "This is to test spring boot app if it is working"
     )
     @GetMapping("/hello")
+    //@RequestMapping(method = RequestMethod.GET, path = "/hello")
     public ResponseEntity<String> hello() {
         return ResponseEntity
                 .status(HttpStatus.OK)
@@ -108,9 +110,10 @@ public class AccountsController {
             )
     }
     )
+    //http://localhost:8080/api/fetch?mobileNumber=4354437687
     @GetMapping("/fetchAccountDetails")
     public ResponseEntity<CustomerDto> fetchAccountDetails(@RequestParam
-                                                               @Pattern(regexp = "(^$|[0-9]{10})", message = "Mobile number must be 10 digit")
+                                                               @Pattern(regexp = "(^$|[0-9]{10})", message = "Mobile number must be 10 digit or should contain only digits")
                                                                String mobileNumber){
         CustomerDto customerDto = iAccountsService.fetchAccount(mobileNumber);
         return ResponseEntity.status(HttpStatus.OK).body(customerDto);
@@ -294,6 +297,39 @@ PUT, on the other hand, is used to update an existing resource or create a resou
 Difference between put and patch method in REST API?
 The main difference between PUT and PATCH methods in REST API is in how they update resources.
 PUT is used to update an entire resource, meaning that the client must send a complete representation of the resource, and any missing fields will be set to null or default values.
-PATCH, on the other hand, is used to partially update a resource, allowing the client to send only the fields that need to be updated, without affecting the other fields of the resource. PATCH is more efficient for updates that only require changes to a subset of the resource's properties, while PUT is more suitable for replacing an entire resource.
+PATCH, on the other hand, is used to partially update a resource, allowing the client to send only the fields that need to be updated, without affecting the other fields of the resource.
+PATCH is more efficient for updates that only require changes to a subset of the resource's properties, while PUT is more suitable for replacing an entire resource.
+
+Is PATCH is idempotent method in REST API?
+PATCH is not an idempotent method in REST API. This is because multiple identical PATCH requests can result in different outcomes, depending on the state of the resource being updated. For example, if a PATCH request is made to update a resource that has already been modified by another request, the outcome may differ from the original request, making it non-idempotent.
+In contrast, PUT is an idempotent method, as multiple identical PUT requests will have the same effect as a single request, regardless of the state of the resource.
+
+Diff between @PathVariable and @RequestParam and if I need to share some sensitive info what is recommended ?
+@PathVariable is used to extract values from the URI path itself, while @RequestParam is used to extract query parameters from the URL. If you need to share sensitive information, it is recommended to use @RequestParam with HTTPS to ensure that the data is encrypted during transmission. Additionally, consider using authentication and authorization mechanisms to further protect sensitive information.
+
+Explain @Validated ?
+
+
+What is the use of @Valid annotation in spring boot?
+The @Valid annotation in Spring Boot is used to indicate that a method parameter should be validated against the constraints defined in the corresponding
+Java class. It is typically used in conjunction with validation annotations (like @NotNull, @Size, etc.) on the fields of the class to ensure that the
+incoming data meets the specified criteria before processing it in the controller method. If the validation fails, Spring Boot will automatically return an
+appropriate error response, such as a 400 Bad Request, along with details about
+the validation errors.
+
+What is Cross-Origin Resource Sharing (CORS) and how to enable it in Spring Boot?
+Cross-Origin Resource Sharing (CORS) is a security feature implemented by web browsers to restrict web pages from making requests to a different domain than
+the one that served the web page. It is a mechanism that allows servers to specify who can access their resources and how they can be accessed.
+In Spring Boot, you can enable CORS by using the @CrossOrigin annotation on your controller or specific handler methods. You can specify the allowed origins,
+HTTP methods, and other CORS configurations using this annotation. For example:
+```java
+@CrossOrigin(origins = "http://example.com")
+
+What is special about @DeleteMapping annotation in spring boot?
+The @DeleteMapping annotation in Spring Boot is a specialized version of the @RequestMapping annotation that is specifically designed to handle HTTP DELETE
+requests. It provides a more concise and readable way to define endpoints that are intended to delete resources. When you use @DeleteMapping,
+it automatically maps the method to handle DELETE requests, eliminating the need to specify the method type explicitly as you would with @RequestMapping.
+This makes the code cleaner and more intuitive when defining RESTful APIs that involve resource deletion.
+
 
  */

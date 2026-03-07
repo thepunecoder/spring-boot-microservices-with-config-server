@@ -5,6 +5,7 @@ import com.thepunecoder.accounts.dto.AccountsDto;
 import com.thepunecoder.accounts.dto.CustomerDto;
 import com.thepunecoder.accounts.entity.Accounts;
 import com.thepunecoder.accounts.entity.Customer;
+import com.thepunecoder.accounts.exception.CustomerAlreadyExistException;
 import com.thepunecoder.accounts.exception.ResourceNotFoundException;
 import com.thepunecoder.accounts.mapper.AccountsMapper;
 import com.thepunecoder.accounts.mapper.CustomerMapper;
@@ -12,10 +13,7 @@ import com.thepunecoder.accounts.repository.AccountsRepository;
 import com.thepunecoder.accounts.repository.CustomerRepository;
 import com.thepunecoder.accounts.service.IAccountsService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.Random;
 
@@ -32,12 +30,12 @@ public class AccountsServiceImpl implements IAccountsService {
      *
      * */
     @Override
-    public void createAccount(com.thepunecoder.accounts.dto.CustomerDto customerDto) {
+    public void createAccount(CustomerDto customerDto) {
         Customer customer = CustomerMapper.mapToCustomer(customerDto,new Customer());
         Optional<Customer> customerOptional = customerRepository.findByMobileNumber(String.valueOf(customerDto.getMobileNumber()));
 
         if(customerOptional.isPresent()){
-            throw new com.thepunecoder.accounts.exception.CustomerAlreadyExistException("Customer with mobile number "+customerDto.getMobileNumber()+" already exists");
+            throw new CustomerAlreadyExistException("Customer with mobile number "+customerDto.getMobileNumber()+" already exists");
         }
 
         Customer savedCustomer = customerRepository.save(customer);

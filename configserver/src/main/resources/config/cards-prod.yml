@@ -1,13 +1,8 @@
-spring:
-  config:
-    activate:
-      on-profile: prod
-
 build:
   version: 1.0.0
 
-accounts:
-  message: "Welcome to ThePuneCoder accounts related Prod APIs"
+cards:
+  message: "Welcome to ThePuneCoder Cards related Prod APIs"
   contactDetails:
     name: "Devarsh W - Product Owner"
     email: "productowner@thepunecoder.com"

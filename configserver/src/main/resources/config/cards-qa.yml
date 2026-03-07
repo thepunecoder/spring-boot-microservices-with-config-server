@@ -1,13 +1,8 @@
-spring:
-  config:
-    activate:
-      on-profile: qa
-
 build:
   version: 2.0.0
 
-accounts:
-  message: "Welcome to ThePuneCoder accounts related QA APIs"
+cards:
+  message: "Welcome to ThePuneCoder cards related QA APIs"
   contactDetails:
     name: "Devarsh W - QA Lead"
     email: "qalead@thepunecoder.com"

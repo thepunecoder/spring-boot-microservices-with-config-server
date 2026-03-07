@@ -92,4 +92,8 @@ Using @ControllerAdvice for exception handling provides several benefits:
 2. Data Binding: You can define @InitBinder methods to customize data binding for all controllers.
 3. Global Configuration: It can be used to apply global configurations that affect multiple controllers.
 
+What is Spring AOP and how does it relate to @ControllerAdvice?
+Spring AOP (Aspect-Oriented Programming) is a programming paradigm that allows you to separate cross-cutting concerns (like logging, security, transaction management) from the main business logic of your application. It enables you to define aspects that can be applied across various points in your application, such as method execution or exception handling.
+@ControllerAdvice can be considered a form of AOP, as it allows you to define advice (exception handling logic) that can be applied across multiple controllers. When an exception is thrown in any controller, the @ControllerAdvice class can intercept it and execute the defined exception handling logic, similar to how aspects work in AOP. This allows for a clean separation of concerns and promotes code reuse in handling exceptions across the application.
+
 */

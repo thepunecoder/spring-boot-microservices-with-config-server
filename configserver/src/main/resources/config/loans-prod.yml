@@ -1,0 +1,11 @@
+build:
+  version: 1.0.0
+
+loans:
+  message: "Welcome to ThePuneCoder Loans related Prod APIs"
+  contactDetails:
+    name: "Devarsh W - Product Owner"
+    email: "productowner@thepunecoder.com"
+  onCallSupport:
+    - (777) 555-1234
+    - (777) 523-1345
