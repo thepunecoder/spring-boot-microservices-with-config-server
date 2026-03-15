@@ -14,6 +14,9 @@ import com.thepunecoder.accounts.repository.CustomerRepository;
 import com.thepunecoder.accounts.service.IAccountsService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.Optional;
 import java.util.Random;
 
@@ -40,6 +43,7 @@ public class AccountsServiceImpl implements IAccountsService {
 
         Customer savedCustomer = customerRepository.save(customer);
         accountsRepository.save(createNewAccount(savedCustomer));
+        test();
     }
 
     /**
@@ -108,5 +112,9 @@ public class AccountsServiceImpl implements IAccountsService {
         return true;
     }
 
+    @Transactional(propagation = Propagation.SUPPORTS)
+    public void test(){
+        // Some Stuff
+    }
 
 }
