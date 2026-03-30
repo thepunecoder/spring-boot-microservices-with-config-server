@@ -9,7 +9,7 @@ services:
         limits:
           memory: 700M
     networks:
-      - thepunecoder-network
+      - thepunecoder
 
   loans-service:
     image: thepunecoder/loans:s4
@@ -21,7 +21,7 @@ services:
         limits:
           memory: 700M
     networks:
-      - thepunecoder-network
+      - thepunecoder
 
   cards-service:
     image: thepunecoder/cards:s4
@@ -34,8 +34,8 @@ services:
           memory:
             700M
     networks:
-      - thepunecoder-network
+      - thepunecoder
 
 networks:
-  thepunecoder-network:
+  thepunecoder:
     driver: bridge

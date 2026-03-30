@@ -76,5 +76,5 @@ services:
       service: microservice-configserver-config
 
 networks:
-  punecoder:
+  thepunecoder:
     driver: "bridge"
