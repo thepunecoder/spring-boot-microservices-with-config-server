@@ -1,7 +1,7 @@
 services:
   network-deploy-service:
     networks:
-      - thepunecoder
+      - punecoder
 
   microservice-base-config:
     extends:

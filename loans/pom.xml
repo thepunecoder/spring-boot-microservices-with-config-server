@@ -133,13 +133,10 @@
                 <configuration>
                     <to>
                         <image>thepunecoder/${project.artifactId}:s6</image>
-                        <excludes>
-                            <exclude>
-                                <groupId>org.projectlombok</groupId>
-                                <artifactId>lombok</artifactId>
-                            </exclude>
-                        </excludes>
                     </to>
+                    <outputPaths>
+                        <digest>target/jib-image.digest</digest>
+                    </outputPaths>
                 </configuration>
             </plugin>
         </plugins>
