@@ -134,9 +134,6 @@
                     <to>
                         <image>thepunecoder/${project.artifactId}:s6</image>
                     </to>
-                    <outputPaths>
-                        <digest>target/jib-image.digest</digest>
-                    </outputPaths>
                 </configuration>
             </plugin>
         </plugins>
