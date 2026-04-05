@@ -5,6 +5,7 @@
     <project name="loans" path="$PROJECT_DIR$/loans" />
     <project name="accounts" path="$PROJECT_DIR$/accounts" />
     <project name="configserver" path="$PROJECT_DIR$/configserver" />
+    <project name="eurekaserver" path="$PROJECT_DIR$/eurekaserver" />
     <option name="workspace" value="true" />
   </component>
 </project>
