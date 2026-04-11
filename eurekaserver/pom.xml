@@ -74,7 +74,7 @@
                 <version>3.5.1</version>
                 <configuration>
                     <to>
-                        <image>eazybytes/${project.artifactId}:s8</image>
+                        <image>thepunecoder/${project.artifactId}:s8</image>
                     </to>
                 </configuration>
             </plugin>
